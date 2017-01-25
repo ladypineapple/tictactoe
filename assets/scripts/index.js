@@ -7,7 +7,11 @@ $(() => {
   setAPIOrigin(location, config);
 });
 
-
+const board = ('','','',
+              '', '', ''
+              '', '', '');
+let player1 = (X);
+let player2 = (O);
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example');
 
