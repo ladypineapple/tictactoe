@@ -52,4 +52,8 @@ const addHandlers = () => {
 };
 
 module.exports = {
+  onChangePassword,
+  onSignUp,
+  onSignIn,
   addHandlers,
+};
