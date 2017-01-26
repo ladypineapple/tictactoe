@@ -10,6 +10,8 @@
       <!-- adds link to cdd style sheet -->
 
       <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="assets/scripts/board.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
@@ -73,29 +75,28 @@
       <h1>Maura's Tic Tac Toe Game</h1>
       <div class="Player Turn"></div>
       <!-- Message to display whose turn it is? -->
-      <div class="board">
-      <div class="boardBody">
+
         <div class="game-play">
-          <div class="player-turn">Player 1, it's your turn</div>
+          <div class="player-turn">It's your turn, Player 1</div>
           <div class="player-message"></div>
           <div class = "game-board-container">
-              <div class="0cell game-box"></div>
-              <div class="1cell game-box"></div>
-              <div class="2cell game-box"></div>
+              <div class="0square game-box"></div>
+              <div class="1square game-box"></div>
+              <div class="2square game-box"></div>
 
-              <div class="3cell game-box"></div>
-              <div class="4cell game-box"></div>
-              <div class="5cell game-box"></div>
+              <div class="3square game-box"></div>
+              <div class="4square game-box"></div>
+              <div class="5square game-box"></div>
 
-              <div class="6cell game-box"></div>
-              <div class="7cell game-box"></div>
-              <div class="8cell game-box"></div>
+              <div class="6square game-box"></div>
+              <div class="7square game-box"></div>
+              <div class="8square game-box"></div>
           </div>
       </div>
       </div>
         <!-- Table for board game.
         Bootsrap with 3x3 columns might be easier here? -->
-        <br/><input class="reset" type="button" value="Reset" />
+        <br/><input id="reset-button" class="reset-button" type="button" value="Reset Game" />
         <!-- Reset button to clear board -->
     </body>
 </html>

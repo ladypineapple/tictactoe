@@ -8,10 +8,10 @@ let tempSymbol;
 let currentPlayTurn;
 // Message for who's turn it is
 const messageText = function(currPlayer) {
-return "Player " + currPlayer + ", it's your turn";
+return "It's your turn, Player " + currPlayer;
 };
 
-//Changes player after turn
+//Switch to the next player after each turn
 const changePlayer = function () {
 if ( currPlayer === playerX ) {
 currPlayer = playerO;
@@ -20,8 +20,7 @@ currPlayer = playerX;
 }
 };
 
-//Function determines whether to insert X or O
-//depending on playerNumber
+//Function to assign x or o to square depending on player#
 const symbolValue = function (player, divClassNum) {
 if (player === playerX) {
 gameBoard[divClassNum] = 'x';
@@ -32,9 +31,9 @@ tempSymbol = 'o';
 }
 };
 
-//determines if cell was already clicked
-const isCellEmpty = function (cellNum) {
-if (gameBoard[cellNum] === "") {
+//determines if square was already clicked
+const issquareEmpty = function (squareNum) {
+if (gameBoard[squareNum] === "") {
 return true;
 } else {
 return false;
@@ -113,20 +112,20 @@ return true;
 
 //Tests to see if the game is over (using isBoardFilled and isWinner)
 const gameOver = function (arr) {
-let isBF = isBoardFilled(arr);
-let isW = isWinner(arr);
-if (isBF || isW) {
+  let isBF = isBoardFilled(arr);
+  let isW = isWinner(arr);
+  if (isBF || isW) {
 return true;
 }
 };
 
 //Function nested in jQuery to start over
 const clearBoard = function() {
-gameBoard = ["", "", "", "", "", "", "", "", ""];
-currPlayer = playerX;
-tempSymbol = "";
-currentPlayTurn = "";
-console.log('clearboard js');
+  gameBoard = ["", "", "", "", "", "", "", "", ""];
+  currPlayer = playerX;
+  tempSymbol = "";
+  currentPlayTurn = "";
+console.log('board is clear js');
 messageText();
 };
 
@@ -139,7 +138,7 @@ $(".game-board-container div").on( "click", function() {
 let divClass = $( this ).attr("class");
 let divClassNum = parseInt(divClass);
 console.log(divClassNum);
-if (isCellEmpty( divClassNum ) === true) {
+if (issquareEmpty( divClassNum ) === true) {
 $(".player-message").text("");
 symbolValue(currPlayer, divClassNum);
 $( this ).text( tempSymbol );
@@ -153,15 +152,14 @@ if (gameOver(gameBoard) === true) {
     $(".player-turn").text(currentPlayTurn);
   }
 } else {
-  $(".player-message").text("Error: This box has already been selected.  Please select a different box to continue the game");
+  $(".player-message").text("This square is taken!  Pick again.");
 }
 
 console.log(gameBoard);
-
-$("#reset-game").on( "click", function() {
+});
+});
+$("#reset-button").on("click", function() {
   console.log('reset completed');
   clearBoard();
-  $(".game-box").text('');
-});
-});
+  $(".game-board-container").text('');
 });
