@@ -2,42 +2,42 @@
 
 let playerX = 1;
 let playerO = 2;
-let currPlayer = playerX;
+let currentPlayer = playerX;
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 let tempSymbol;
 let currentPlayTurn;
 // Message for who's turn it is
-const messageText = function(currPlayer) {
-return "It's your turn, Player " + currPlayer;
+const messageText = function(currentPlayer) {
+return "It's your turn, Player " + currentPlayer;
 };
 
 //Switch to the next player after each turn
 const changePlayer = function () {
-if ( currPlayer === playerX ) {
-currPlayer = playerO;
-} else {
-currPlayer = playerX;
-}
+  if ( currentPlayer === playerX ) {
+  currentPlayer = playerO;
+    } else {
+    currentPlayer = playerX;
+    }
 };
 
-//Function to assign x or o to square depending on player#
+//Function to assign marker based on playerx or player0
 const symbolValue = function (player, divClassNum) {
-if (player === playerX) {
-gameBoard[divClassNum] = 'x';
-tempSymbol = 'x';
-} else {
-gameBoard[divClassNum] = 'o';
-tempSymbol = 'o';
-}
+  if (player === playerX) {
+  gameBoard[divClassNum] = 'x';
+  tempSymbol = 'x';
+    } else {
+    gameBoard[divClassNum] = 'o';
+    tempSymbol = 'o';
+    }
 };
 
-//determines if square was already clicked
+//determines if space is available
 const issquareEmpty = function (squareNum) {
-if (gameBoard[squareNum] === "") {
-return true;
-} else {
-return false;
-}
+  if (gameBoard[squareNum] === "") {
+  return true;
+    } else {
+    return false;
+    }
 };
 
 //states whether the board is filled
@@ -122,7 +122,7 @@ return true;
 //Function nested in jQuery to start over
 const clearBoard = function() {
   gameBoard = ["", "", "", "", "", "", "", "", ""];
-  currPlayer = playerX;
+  currentPlayer = playerX;
   tempSymbol = "";
   currentPlayTurn = "";
 console.log('board is clear js');
@@ -140,7 +140,7 @@ let divClassNum = parseInt(divClass);
 console.log(divClassNum);
 if (issquareEmpty( divClassNum ) === true) {
 $(".player-message").text("");
-symbolValue(currPlayer, divClassNum);
+symbolValue(currentPlayer, divClassNum);
 $( this ).text( tempSymbol );
 if (gameOver(gameBoard) === true) {
 
@@ -148,7 +148,7 @@ if (gameOver(gameBoard) === true) {
     $(".player-message").text("Game Over");
   } else {
     changePlayer();
-    currentPlayTurn = messageText(currPlayer);
+    currentPlayTurn = messageText(currentPlayer);
     $(".player-turn").text(currentPlayTurn);
   }
 } else {
@@ -158,8 +158,9 @@ if (gameOver(gameBoard) === true) {
 console.log(gameBoard);
 });
 });
+
 $("#reset-button").on("click", function() {
   console.log('reset completed');
   clearBoard();
-  $(".game-board-container").text('');
+  $(".game-box").text('');
 });
