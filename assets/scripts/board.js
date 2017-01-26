@@ -50,7 +50,7 @@ return false;
 return true;
 };
 
-//Arrays Equal to test for is Winner Function
+//Arrays Equal to test for isWinner Function
 function arraysEqual(arr1, arr2) {
 if (arr1.length !== arr2.length) {
 return false;
@@ -110,7 +110,7 @@ return true;
 }
 };
 
-//Tests to see if the game is over (using isBoardFilled and isWinner)
+//Test for a winner using isBoardFilled and isWinner
 const gameOver = function (arr) {
   let isBF = isBoardFilled(arr);
   let isW = isWinner(arr);
@@ -126,7 +126,7 @@ const clearBoard = function() {
   tempSymbol = "";
   currentPlayTurn = "";
 console.log('board is clear js');
-messageText();
+messageText("");
 };
 
 //*************jQuery//
@@ -135,14 +135,14 @@ $(() => {
 
 //console log index number
 $(".game-board-container div").on( "click", function() {
-let divClass = $( this ).attr("class");
-let divClassNum = parseInt(divClass);
-console.log(divClassNum);
+  let divClass = $( this ).attr("class");
+  let divClassNum = parseInt(divClass);
+  console.log(divClassNum);
 if (issquareEmpty( divClassNum ) === true) {
 $(".player-message").text("");
-symbolValue(currentPlayer, divClassNum);
-$( this ).text( tempSymbol );
-if (gameOver(gameBoard) === true) {
+  symbolValue(currentPlayer, divClassNum);
+  $( this ).text( tempSymbol );
+  if (gameOver(gameBoard) === true) {
 
     $(".player-turn").text("");
     $(".player-message").text("Game Over");
