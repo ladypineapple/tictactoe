@@ -163,4 +163,5 @@ $("#reset-button").on("click", function() {
   console.log('reset completed');
   clearBoard();
   $(".game-box").text('');
+  $(".player-turn").text("It's your turn, Player 1");
 });
