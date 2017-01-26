@@ -9,3 +9,7 @@ const player = function (name, index) {
     this.marker = 'O';
   }
 };
+
+let board = ['','','',
+            '','','',
+            '','',];
