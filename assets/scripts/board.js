@@ -12,4 +12,4 @@ const player = function (name, index) {
 
 let board = ['','','',
             '','','',
-            '','',];
+            '','',''];
