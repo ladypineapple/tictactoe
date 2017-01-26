@@ -50,7 +50,7 @@ return false;
 return true;
 };
 
-//Arrays Equal to test for isWinner Function
+//Arrays Equal to test for is Winner Function
 function arraysEqual(arr1, arr2) {
 if (arr1.length !== arr2.length) {
 return false;

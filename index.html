@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Maura's Game</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -20,15 +20,15 @@
           <fieldset>
             <legend>Sign up!</legend>
             <label class="email">
-              Email
+              Email:
               <input type="text" name="credentials[email]">
             </label>
             <label class="password">
-              Password
+              Password:
               <input type="password" name="credentials[password]">
             </label>
             <label class="password_confirmation">
-              Password Confirmation
+              Password Confirmation:
               <input type="password" name="credentials[password_confirmation]">
             </label>
             <input type="submit" name="submit" value="Sign up!">
@@ -38,11 +38,11 @@
           <fieldset>
             <legend>Sign in!</legend>
             <label class="email">
-              Email
+              Email:
               <input type="text" name="credentials[email]">
             </label>
             <label class="password">
-              Password
+              Password:
               <input type="password" name="credentials[password]">
             </label>
             <input type="submit" name="submit" value="Sign in!">
@@ -53,11 +53,11 @@
           <fieldset>
             <legend>Change Password!</legend>
             <label>
-              Current Password
+              Current Password:
               <input type="password" name="passwords[old]">
             </label>
             <label>
-              New Password
+              New Password:
               <input type="password" name="passwords[new]">
             </label>
 
@@ -79,6 +79,7 @@
         <div class="game-play">
           <div class="player-turn">It's your turn, Player 1</div>
           <div class="player-message"></div>
+          <br>
           <div class = "game-board-container">
               <div class="0square game-box"></div>
               <div class="1square game-box"></div>
@@ -96,7 +97,8 @@
       </div>
         <!-- Table for board game.
         Bootsrap with 3x3 columns might be easier here? -->
-        <br/><input id="reset-button" class="reset-button" type="button" value="Reset Game" />
+
+        <input id="reset-button" class="reset-button" type="button" value="Reset Game" />
         <!-- Reset button to clear board -->
     </body>
 </html>

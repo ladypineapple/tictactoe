@@ -4,15 +4,20 @@ body {
   margin:0 auto;
   text-align:center;
   margin-top:50px;
-  color:#FFF;
+  color:#000080;
   background:#333;
 }
+
+/*game-board-container {
+
+}*/
 
 .game-box {
     float: left;
     border: 1px solid blue;
-    text-align: center ;
-    height: 100px ;
+    background-color: aqua;
+    text-align: center;
+    height: 100px;
     width:33%;
     font-size: 30px;
     vertical-align: middle;
