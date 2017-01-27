@@ -2,42 +2,42 @@
 
 let playerX = 1;
 let playerO = 2;
-let currentPlayer = playerX;
+let currPlayer = playerX;
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 let tempSymbol;
 let currentPlayTurn;
 // Message for who's turn it is
-const messageText = function(currentPlayer) {
-return "It's your turn, Player " + currentPlayer;
+const messageText = function(currPlayer) {
+return "It's your turn, Player " + currPlayer;
 };
 
 //Switch to the next player after each turn
 const changePlayer = function () {
-  if ( currentPlayer === playerX ) {
-  currentPlayer = playerO;
-    } else {
-    currentPlayer = playerX;
-    }
+if ( currPlayer === playerX ) {
+currPlayer = playerO;
+} else {
+currPlayer = playerX;
+}
 };
 
-//Function to assign marker based on playerx or player0
+//Function to assign x or o to square depending on player#
 const symbolValue = function (player, divClassNum) {
-  if (player === playerX) {
-  gameBoard[divClassNum] = 'x';
-  tempSymbol = 'x';
-    } else {
-    gameBoard[divClassNum] = 'o';
-    tempSymbol = 'o';
-    }
+if (player === playerX) {
+gameBoard[divClassNum] = 'x';
+tempSymbol = 'x';
+} else {
+gameBoard[divClassNum] = 'o';
+tempSymbol = 'o';
+}
 };
 
-//determines if space is available
+//determines if square was already clicked
 const issquareEmpty = function (squareNum) {
-  if (gameBoard[squareNum] === "") {
-  return true;
-    } else {
-    return false;
-    }
+if (gameBoard[squareNum] === "") {
+return true;
+} else {
+return false;
+}
 };
 
 //states whether the board is filled
@@ -122,7 +122,7 @@ return true;
 //Function nested in jQuery to start over
 const clearBoard = function() {
   gameBoard = ["", "", "", "", "", "", "", "", ""];
-  currentPlayer = playerX;
+  currPlayer = playerX;
   tempSymbol = "";
   currentPlayTurn = "";
 console.log('board is clear js');
@@ -143,12 +143,11 @@ $(".player-message").text("");
   symbolValue(currentPlayer, divClassNum);
   $( this ).text( tempSymbol );
   if (gameOver(gameBoard) === true) {
-
     $(".player-turn").text("");
     $(".player-message").text("Game Over");
   } else {
     changePlayer();
-    currentPlayTurn = messageText(currentPlayer);
+    currentPlayTurn = messageText(currPlayer);
     $(".player-turn").text(currentPlayTurn);
   }
 } else {
@@ -158,10 +157,10 @@ $(".player-message").text("");
 console.log(gameBoard);
 });
 });
-
 $("#reset-button").on("click", function() {
   console.log('reset completed');
   clearBoard();
   $(".game-box").text('');
   $(".player-turn").text("It's your turn, Player 1");
+  $(".game-board-container").text('');
 });

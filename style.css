@@ -14,10 +14,9 @@ body {
 
 .game-box {
     float: left;
-    border: 1px solid blue;
-    background-color: #b5d9e2;
-    text-align: center;
-    height: 100px;
+    border: 1px solid red ;
+    text-align: center ;
+    height: 100px ;
     width:33%;
     font-size: 30px;
     vertical-align: middle;
