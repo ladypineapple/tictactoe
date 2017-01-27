@@ -14,7 +14,8 @@ body {
 
 .game-box {
     float: left;
-    border: 1px solid red ;
+    border: 1px solid blue;
+    background: #b8c1d1;
     text-align: center ;
     height: 100px ;
     width:33%;

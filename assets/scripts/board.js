@@ -126,7 +126,11 @@ const clearBoard = function() {
   tempSymbol = "";
   currentPlayTurn = "";
 console.log('board is clear js');
-messageText("");
+// messageText(currPlayer);
+currentPlayTurn = messageText(currPlayer);
+$(".player-turn").text(currentPlayTurn);
+$(".player-message").text('');
+$(".game-box").text('');
 };
 
 //*************jQuery//
@@ -140,7 +144,7 @@ $(".game-board-container div").on( "click", function() {
   console.log(divClassNum);
 if (issquareEmpty( divClassNum ) === true) {
 $(".player-message").text("");
-  symbolValue(currentPlayer, divClassNum);
+  symbolValue(currPlayer, divClassNum);
   $( this ).text( tempSymbol );
   if (gameOver(gameBoard) === true) {
     $(".player-turn").text("");
@@ -160,7 +164,5 @@ console.log(gameBoard);
 $("#reset-button").on("click", function() {
   console.log('reset completed');
   clearBoard();
-  $(".game-box").text('');
-  $(".player-turn").text("It's your turn, Player 1");
-  $(".game-board-container").text('');
+  //
 });
