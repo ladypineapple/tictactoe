@@ -4,7 +4,7 @@ let playerX = 1;
 let playerO = 2;
 let currentPlayer = playerX;
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
-let tempSymbol;
+let playSymbol;
 let currentPlayTurn;
 // Message for who's turn it is
 const messageText = function(currentPlayer) {
@@ -24,15 +24,15 @@ currentPlayer = playerX;
 const symbolValue = function (player, divClassNum) {
 if (player === playerX) {
 gameBoard[divClassNum] = 'x';
-tempSymbol = 'x';
+playSymbol = 'x';
 } else {
 gameBoard[divClassNum] = 'o';
-tempSymbol = 'o';
+playSymbol = 'o';
 }
 };
 
 //determines if square was already clicked
-const issquareEmpty = function (squareNum) {
+const isSpaceEmpty = function (squareNum) {
 if (gameBoard[squareNum] === "") {
 return true;
 } else {
@@ -123,7 +123,7 @@ return true;
 const clearBoard = function() {
   gameBoard = ["", "", "", "", "", "", "", "", ""];
   currentPlayer = playerX;
-  tempSymbol = "";
+  playSymbol = "";
   currentPlayTurn = "";
 console.log('board is clear js');
 // messageText(currentPlayer);
@@ -143,10 +143,10 @@ $(".game-board-container div").on( "click", function() {
   let divClassNum = parseInt(divClass);
   console.log(divClassNum);
 
-if (issquareEmpty( divClassNum ) === true) {
+if (isSpaceEmpty( divClassNum ) === true) {
   $(".message-player").text("");
   symbolValue(currentPlayer, divClassNum);
-  $( this ).text( tempSymbol );
+  $( this ).text( playSymbol );
 
 if (gameOver(gameBoard) === true) {
     $(".player-turn").text("");
