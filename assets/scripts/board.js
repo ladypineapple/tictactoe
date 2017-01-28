@@ -2,21 +2,21 @@
 
 let playerX = 1;
 let playerO = 2;
-let currPlayer = playerX;
+let currentPlayer = playerX;
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 let tempSymbol;
-let currentPlayTurn;
+let currentTurn;
 // Message for who's turn it is
-const messageText = function(currPlayer) {
-return "It's your turn, Player " + currPlayer;
+const messageText = function(currentPlayer) {
+return "It's your turn, Player " + currentPlayer;
 };
 
 //Switch to the next player after each turn
 const changePlayer = function () {
-if ( currPlayer === playerX ) {
-currPlayer = playerO;
+if ( currentPlayer === playerX ) {
+currentPlayer = playerO;
 } else {
-currPlayer = playerX;
+currentPlayer = playerX;
 }
 };
 
@@ -64,7 +64,7 @@ return false;
 return true;
 }
 
-//Determines if anyone won after a turn
+//Do we have a winner?
 const isWinner = function(arr) {
 let tempArrayX = [];
 let tempArrayY = [];
@@ -84,27 +84,27 @@ tempArrayX.push(i);
 tempArrayY.push(i);
 }
 }
-let winCompOneX = arraysEqual(tempArrayX, winOne);
-let winCompTwoX = arraysEqual(tempArrayX, winTwo);
-let winCompThreeX = arraysEqual(tempArrayX, winThree);
-let winCompFourX = arraysEqual(tempArrayX, winFour);
-let winCompFiveX = arraysEqual(tempArrayX, winFive);
-let winCompSixX = arraysEqual(tempArrayX, winSix);
-let winCompSevenX = arraysEqual(tempArrayX, winSeven);
-let winCompEightX = arraysEqual(tempArrayX, winEight);
+let winComboOneX = arraysEqual(tempArrayX, winOne);
+let winComboTwoX = arraysEqual(tempArrayX, winTwo);
+let winComboThreeX = arraysEqual(tempArrayX, winThree);
+let winComboFourX = arraysEqual(tempArrayX, winFour);
+let winComboFiveX = arraysEqual(tempArrayX, winFive);
+let winComboSixX = arraysEqual(tempArrayX, winSix);
+let winComboSevenX = arraysEqual(tempArrayX, winSeven);
+let winComboEightX = arraysEqual(tempArrayX, winEight);
 
-let winCompOneY = arraysEqual(tempArrayY, winOne);
-let winCompTwoY = arraysEqual(tempArrayY, winTwo);
-let winCompThreeY = arraysEqual(tempArrayY, winThree);
-let winCompFourY = arraysEqual(tempArrayY, winFour);
-let winCompFiveY = arraysEqual(tempArrayY, winFive);
-let winCompSixY = arraysEqual(tempArrayY, winSix);
-let winCompSevenY = arraysEqual(tempArrayY, winSeven);
-let winCompEightY = arraysEqual(tempArrayY, winEight);
+let winComboOneY = arraysEqual(tempArrayY, winOne);
+let winComboTwoY = arraysEqual(tempArrayY, winTwo);
+let winComboThreeY = arraysEqual(tempArrayY, winThree);
+let winComboFourY = arraysEqual(tempArrayY, winFour);
+let winComboFiveY = arraysEqual(tempArrayY, winFive);
+let winComboSixY = arraysEqual(tempArrayY, winSix);
+let winComboSevenY = arraysEqual(tempArrayY, winSeven);
+let winComboEightY = arraysEqual(tempArrayY, winEight);
 
 console.log(tempArrayX);
 
-if (winCompOneX || winCompTwoX || winCompThreeX || winCompFourX || winCompFiveX || winCompSixX || winCompSevenX || winCompEightX || winCompOneY || winCompTwoY || winCompThreeY || winCompFourY || winCompFiveY || winCompSixY || winCompSevenY || winCompEightY) {
+if (winComboOneX || winComboTwoX || winComboThreeX || winComboFourX || winComboFiveX || winComboSixX || winComboSevenX || winComboEightX || winComboOneY || winComboTwoY || winComboThreeY || winComboFourY || winComboFiveY || winComboSixY || winComboSevenY || winComboEightY) {
 
 return true;
 }
@@ -122,15 +122,15 @@ return true;
 //Function nested in jQuery to start over
 const clearBoard = function() {
   gameBoard = ["", "", "", "", "", "", "", "", ""];
-  currPlayer = playerX;
+  currentPlayer = playerX;
   tempSymbol = "";
-  currentPlayTurn = "";
+  currentTurn = "";
 console.log('board is clear js');
-// messageText(currPlayer);
-currentPlayTurn = messageText(currPlayer);
-$(".player-turn").text(currentPlayTurn);
-$(".player-message").text('');
-$(".game-box").text('');
+// messageText(currentPlayer);
+currentTurn = messageText(currentPlayer);
+  $(".player-turn").text(currentTurn);
+  $(".message-player").text('');
+  $(".game-box").text('');
 };
 
 //jQuery//
@@ -144,20 +144,20 @@ $(".game-board-container div").on( "click", function() {
   console.log(divClassNum);
 
 if (issquareEmpty( divClassNum ) === true) {
-  $(".player-message").text("");
-  symbolValue(currPlayer, divClassNum);
+  $(".message-player").text("");
+  symbolValue(currentPlayer, divClassNum);
   $( this ).text( tempSymbol );
 
 if (gameOver(gameBoard) === true) {
     $(".player-turn").text("");
-    $(".player-message").text("Game Over");
+    $(".message-player").text("Game Over");
     } else {
     changePlayer();
-    currentPlayTurn = messageText(currPlayer);
-    $(".player-turn").text(currentPlayTurn);
+    currentTurn = messageText(currentPlayer);
+    $(".player-turn").text(currentTurn);
   }
 } else {
-  $(".player-message").text("This square is taken!  Pick again.");
+  $(".message-player").text("This square is taken!  Pick again.");
 }
 
 console.log(gameBoard);
