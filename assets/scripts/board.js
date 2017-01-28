@@ -149,6 +149,7 @@ $(".player-message").text("");
   if (gameOver(gameBoard) === true) {
     $(".player-turn").text("");
     $(".player-message").text("Game Over");
+    clearBoard ();
   } else {
     changePlayer();
     currentPlayTurn = messageText(currPlayer);
