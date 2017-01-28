@@ -133,7 +133,7 @@ $(".player-message").text('');
 $(".game-box").text('');
 };
 
-//*************jQuery//
+//jQuery//
 //Onload Functions for jQuery
 $(() => {
 
@@ -142,15 +142,16 @@ $(".game-board-container div").on( "click", function() {
   let divClass = $( this ).attr("class");
   let divClassNum = parseInt(divClass);
   console.log(divClassNum);
+
 if (issquareEmpty( divClassNum ) === true) {
-$(".player-message").text("");
+  $(".player-message").text("");
   symbolValue(currPlayer, divClassNum);
   $( this ).text( tempSymbol );
-  if (gameOver(gameBoard) === true) {
+
+if (gameOver(gameBoard) === true) {
     $(".player-turn").text("");
     $(".player-message").text("Game Over");
-    clearBoard ();
-  } else {
+    } else {
     changePlayer();
     currentPlayTurn = messageText(currPlayer);
     $(".player-turn").text(currentPlayTurn);

@@ -7,7 +7,7 @@
       <!-- Do not add `link` tags unless you know what you are doing -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
       <link href="style.css" rel="stylesheet">
-      <!-- adds link to cdd style sheet -->
+      <!-- adds link to css style sheet -->
 
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -74,24 +74,27 @@
 
       <h1>Maura's Tic Tac Toe Game</h1>
       <div class="Player Turn"></div>
-      <!-- Message to display whose turn it is? -->
+
 
         <div class="game-play">
           <div class="player-turn">It's your turn, Player 1</div>
+      <!-- Message to display whose turn it is -->
           <div class="player-message"></div>
           <br>
+        <!-- Need to use two classes for each game square -->
+        <!-- First class needs leading numbers for game arrays -->
           <div class = "game-board-container">
-              <div class="0square game-box"></div>
-              <div class="1square game-box"></div>
-              <div class="2square game-box"></div>
+              <div class="0square game-box row1"></div>
+              <div class="1square game-box row1"></div>
+              <div class="2square game-box row1"></div>
 
-              <div class="3square game-box"></div>
-              <div class="4square game-box"></div>
-              <div class="5square game-box"></div>
+              <div class="3square game-box row2"></div>
+              <div class="4square game-box row2"></div>
+              <div class="5square game-box row2"></div>
 
-              <div class="6square game-box"></div>
-              <div class="7square game-box"></div>
-              <div class="8square game-box"></div>
+              <div class="6square game-box row3"></div>
+              <div class="7square game-box row3"></div>
+              <div class="8square game-box row3"></div>
           </div>
       </div>
       </div>
