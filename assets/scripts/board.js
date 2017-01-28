@@ -5,7 +5,7 @@ let playerO = 2;
 let currentPlayer = playerX;
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 let tempSymbol;
-let currentTurn;
+let currentPlayTurn;
 // Message for who's turn it is
 const messageText = function(currentPlayer) {
 return "It's your turn, Player " + currentPlayer;
@@ -124,11 +124,11 @@ const clearBoard = function() {
   gameBoard = ["", "", "", "", "", "", "", "", ""];
   currentPlayer = playerX;
   tempSymbol = "";
-  currentTurn = "";
+  currentPlayTurn = "";
 console.log('board is clear js');
 // messageText(currentPlayer);
-currentTurn = messageText(currentPlayer);
-  $(".player-turn").text(currentTurn);
+currentPlayTurn = messageText(currentPlayer);
+  $(".player-turn").text(currentPlayTurn);
   $(".message-player").text('');
   $(".game-box").text('');
 };
@@ -153,8 +153,8 @@ if (gameOver(gameBoard) === true) {
     $(".message-player").text("Game Over");
     } else {
     changePlayer();
-    currentTurn = messageText(currentPlayer);
-    $(".player-turn").text(currentTurn);
+    currentPlayTurn = messageText(currentPlayer);
+    $(".player-turn").text(currentPlayTurn);
   }
 } else {
   $(".message-player").text("This square is taken!  Pick again.");
