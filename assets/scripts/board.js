@@ -52,13 +52,13 @@ return true;
 
 //Arrays Equal to test for isWinner Function
 function arraysEqual(array1, array2) {
-if (array1.length !== array2.length) {
-return false;
-}
+  if (array1.length !== array2.length) {
+    return false;
+    }
 for (let i = array1.length; i--;) {
-if (array1[i] !== array2[i]) {
-return false;
-}
+  if (array1[i] !== array2[i]) {
+    return false;
+  }
 }
 
 return true;
@@ -66,23 +66,23 @@ return true;
 
 //Do we have a winner?
 const isWinner = function(arr) {
-let tempArrayX = [];
-let tempArrayY = [];
-let winOne = [0, 1, 2];
-let winTwo = [2, 5, 8];
-let winThree = [6, 7, 8];
-let winFour = [0, 3, 6];
-let winFive = [0, 4, 8];
-let winSix = [2, 4, 6];
-let winSeven = [1, 4, 7];
-let winEight = [3, 4, 5];
+  let tempArrayX = [];
+  let tempArrayY = [];
+  let winOne = [0, 1, 2];
+  let winTwo = [2, 5, 8];
+  let winThree = [6, 7, 8];
+  let winFour = [0, 3, 6];
+  let winFive = [0, 4, 8];
+  let winSix = [2, 4, 6];
+  let winSeven = [1, 4, 7];
+  let winEight = [3, 4, 5];
 
 for (let i = 0; i < arr.length; i++) {
-if (arr[i] === "x") {
-tempArrayX.push(i);
-} else if (arr[i] === "o") {
-tempArrayY.push(i);
-}
+  if (arr[i] === "x") {
+  tempArrayX.push(i);
+    } else if (arr[i] === "o") {
+    tempArrayY.push(i);
+    }
 }
 let winComboOneX = arraysEqual(tempArrayX, winOne);
 let winComboTwoX = arraysEqual(tempArrayX, winTwo);
@@ -149,16 +149,17 @@ if (isSpaceEmpty( divClassNum ) === true) {
   $( this ).text( playSymbol );
 
 if (gameOver(gameBoard) === true) {
-    $(".player-turn").text('You win!');
     $(".message-player").text("Game Over");
-    } else {
-    changePlayer();
-    currentPlayTurn = messageText(currentPlayer);
-    $(".player-turn").text(currentPlayTurn);
-  }
-} else {
-  $(".message-player").text("This square is taken! Pick again.");
-}
+      }
+      else {
+      changePlayer();
+      currentPlayTurn = messageText(currentPlayer);
+      $(".player-turn").text(currentPlayTurn);
+      }
+      } 
+        else {
+        $(".message-player").text("This square is taken! Pick again.");
+      }
 
 console.log(gameBoard);
 });
