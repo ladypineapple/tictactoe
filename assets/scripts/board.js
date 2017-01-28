@@ -149,7 +149,7 @@ if (isSpaceEmpty( divClassNum ) === true) {
   $( this ).text( playSymbol );
 
 if (gameOver(gameBoard) === true) {
-    $(".player-turn").text("");
+    $(".player-turn").text('You win!');
     $(".message-player").text("Game Over");
     } else {
     changePlayer();
