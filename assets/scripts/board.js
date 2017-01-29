@@ -149,15 +149,16 @@ if (isSpaceEmpty( divClassNum ) === true) {
   $( this ).text( playSymbol );
 
 if (gameOver(gameBoard) === true) {
-    $(".message-player").text("Game Over");
+      $(".player-turn").text('');
+      $(".message-player").text("Game Over");
       }
-      else {
+else {
       changePlayer();
       currentPlayTurn = messageText(currentPlayer);
       $(".player-turn").text(currentPlayTurn);
       }
-      } 
-        else {
+      }
+else {
         $(".message-player").text("This square is taken! Pick again.");
       }
 
