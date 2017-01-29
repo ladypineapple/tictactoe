@@ -8,56 +8,59 @@ let playSymbol;
 let currentPlayTurn;
 // Message for who's turn it is
 const messageText = function(currentPlayer) {
-return "It's your turn, Player " + currentPlayer;
-};
+  return "It's your turn, Player " + currentPlayer;
+  };
 
 //Switch to the next player after each turn
 const changePlayer = function () {
-if ( currentPlayer === playerX ) {
-currentPlayer = playerO;
-} else {
-currentPlayer = playerX;
-}
-};
+  if ( currentPlayer === playerX ) {
+  currentPlayer = playerO;
+  }
+    else {
+    currentPlayer = playerX;
+    }
+    };
 
 //Function to assign x or o to square depending on player#
 const symbolValue = function (player, divClassNum) {
-if (player === playerX) {
-gameBoard[divClassNum] = 'x';
-playSymbol = 'x';
-} else {
-gameBoard[divClassNum] = 'o';
-playSymbol = 'o';
-}
+  if (player === playerX) {
+  gameBoard[divClassNum] = 'x';
+  playSymbol = 'x';
+  }
+    else {
+    gameBoard[divClassNum] = 'o';
+    playSymbol = 'o';
+    }
 };
 
 //determines if square was already clicked
 const isSpaceEmpty = function (squareNum) {
-if (gameBoard[squareNum] === "") {
-return true;
-} else {
-return false;
-}
+  if (gameBoard[squareNum] === "") {
+  return true;
+  }
+    else {
+    return false;
+    }
 };
 
 //states whether the board is filled
 const isBoardFilled = function(arr) {
-for (let i = 0; i < arr.length; i++) {
-if (arr[i] === "") {
-return false;
-}
-}
-return true;
-};
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "") {
+    return false;
+    }
+    }
+    return true;
+    };
 
 //Arrays Equal to test for isWinner Function
 function arraysEqual(array1, array2) {
   if (array1.length !== array2.length) {
     return false;
     }
-for (let i = array1.length; i--;) {
-  if (array1[i] !== array2[i]) {
-    return false;
+  for (let i = array1.length; i--;) {
+    if (array1[i] !== array2[i]) {
+      return false;
   }
 }
 
@@ -115,8 +118,8 @@ const gameOver = function (arr) {
   let isBF = isBoardFilled(arr);
   let isW = isWinner(arr);
   if (isBF || isW) {
-return true;
-}
+    return true;
+      }
 };
 
 //Function nested in jQuery to start over
@@ -128,10 +131,10 @@ const clearBoard = function() {
 console.log('board is clear js');
 // messageText(currentPlayer);
 currentPlayTurn = messageText(currentPlayer);
-  $(".player-turn").text(currentPlayTurn);
-  $(".message-player").text('');
-  $(".game-box").text('');
-};
+      $(".player-turn").text(currentPlayTurn);
+      $(".message-player").text('');
+      $(".game-box").text('');
+    };
 
 //jQuery//
 //Onload Functions for jQuery
