@@ -1,5 +1,8 @@
 'use strict';
 
+// const api = require('./auth/api');
+// need to add in api for game functions
+
 let playerX = 1;
 let playerO = 2;
 let currentPlayer = playerX;
@@ -119,6 +122,7 @@ const gameOver = function (arr) {
   let isW = isWinner(arr);
   if (isBF || isW) {
     return true;
+    // TODO add an offclick
       }
 };
 
@@ -128,6 +132,7 @@ const clearBoard = function() {
   currentPlayer = playerX;
   playSymbol = "";
   currentPlayTurn = "";
+  // needs an on.click function
 console.log('board is clear js');
 // messageText(currentPlayer);
 currentPlayTurn = messageText(currentPlayer);
@@ -151,10 +156,13 @@ if (isSpaceEmpty( divClassNum ) === true) {
   symbolValue(currentPlayer, divClassNum);
   $( this ).text( playSymbol );
 
+// TODO needs to be removed
 if (gameOver(gameBoard) === true) {
       $(".player-turn").text('');
       $(".message-player").text("Game Over");
       }
+// TODO add in if winner offclick and message
+// TODO and in if boardfull offclick and message
 else {
       changePlayer();
       currentPlayTurn = messageText(currentPlayer);
