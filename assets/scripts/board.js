@@ -117,14 +117,14 @@ return true;
 };
 
 //Test for a winner using isBoardFilled and isWinner
-const gameOver = function (arr) {
-  let isBF = isBoardFilled(arr);
-  let isW = isWinner(arr);
-  if (isBF || isW) {
-    return true;
-    // TODO add an offclick
-      }
-};
+// const gameOver = function (arr) {
+//   let isBF = isBoardFilled(arr);
+//   let isW = isWinner(arr);
+//   if (isBF || isW) {
+//     return true;
+//     // TODO add an offclick
+//       }
+// };
 
 //Function nested in jQuery to start over
 const clearBoard = function() {

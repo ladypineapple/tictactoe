@@ -13,6 +13,7 @@ const onSignUp = function (event) {
 
   api.signUp(data)
     .then(ui.success)
+
     // .catch(ui.failure)
     ;
 };
@@ -28,6 +29,7 @@ const onSignIn = function (event) {
     return store;
   })
   .then(ui.signInSuccess)
+
   // .catch(ui.failure)
   ;
 };
@@ -59,7 +61,6 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
 };
-
 
 module.exports = {
   addHandlers,
