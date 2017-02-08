@@ -128,6 +128,7 @@ const gameOver = function (arr) {
 
 //Function nested in jQuery to start over
 const clearBoard = function() {
+  // $(".game-box").on("click");
   gameBoard = ["", "", "", "", "", "", "", "", ""];
   currentPlayer = playerX;
   playSymbol = "";
@@ -156,11 +157,21 @@ if (isSpaceEmpty( divClassNum ) === true) {
   symbolValue(currentPlayer, divClassNum);
   $( this ).text( playSymbol );
 
-// TODO needs to be removed
-if (gameOver(gameBoard) === true) {
-      $(".player-turn").text('');
-      $(".message-player").text("Game Over");
+  if (isWinner(gameBoard) === true) {
+        $(".player-turn").text('');
+        $(".message-player").text("You Win");
+        // $(".game-box").off("click");
       }
+
+  if (isBoardFilled(gameBoard) === true) {
+          $(".player-turn").text('');
+          $(".message-player").text("Game Over!");
+        }
+// TODO needs to be removed
+// if (gameOver(gameBoard) === true) {
+//       $(".player-turn").text('');
+//       $(".message-player").text("Game Over");
+//       }
 // TODO add in if winner offclick and message
 // TODO and in if boardfull offclick and message
 else {
@@ -170,7 +181,7 @@ else {
       }
       }
 else {
-        $(".message-player").text("This square is taken! Pick again.");
+      $(".message-player").text("This square is taken! Pick again.");
       }
 
 console.log(gameBoard);
