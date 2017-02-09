@@ -1,6 +1,6 @@
 'use strict';
 
-// const api = require('./auth/api');
+//const api = require('./auth/api');
 // need to add in api for game functions
 
 let playerX = 1;
