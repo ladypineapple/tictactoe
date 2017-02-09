@@ -128,7 +128,6 @@ const clearBoard = function () {
         currentPlayTurn = '';
 
         // currentPlayer = 'X';
-
       }
 
       $('.game-board-container div').on('click', function () {
