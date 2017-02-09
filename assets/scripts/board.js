@@ -122,14 +122,19 @@ const gameOver = function (arr) {
 const clearBoard = function () {
       for (let i = 0; i < gameBoard.length; i++) {
         gameBoard[i] = '';
-        currentPlayer = 'X';
+        gameBoard = ['', '', '', '', '', '', '', '', ''];
+        currentPlayer = playerX;
+        playSymbol = '';
+        currentPlayTurn = '';
 
-      } $('.game-board-container div').on('click', function () {
+        // currentPlayer = 'X';
 
+      }
+
+      $('.game-board-container div').on('click', function () {
         let divClass = $(this).attr('class');
         let divClassNum = parseInt(divClass);
         console.log(divClassNum);
-        changePlayer();
         if (isSpaceEmpty(divClassNum) === true) {
           $('.message-player').text('');
           symbolValue(currentPlayer, divClassNum);
@@ -140,6 +145,7 @@ const clearBoard = function () {
           }else {
             currentPlayTurn = messageText(currentPlayer);
             $('.player-turn').text(currentPlayTurn);
+            changePlayer();
           }
         }else {
           $('.message-player').text('This square is taken! Pick again.');
