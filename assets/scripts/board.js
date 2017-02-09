@@ -1,8 +1,4 @@
 'use strict';
-
-//const api = require('./auth/api');
-// need to add in api for game functions
-
 let playerX = 1;
 let playerO = 2;
 let currentPlayer = playerX;
@@ -12,17 +8,17 @@ let currentPlayTurn;
 
 // Message for who's turn it is
 const messageText = function (currentPlayer) {
-  return "It's your turn, Player " + currentPlayer;
-};
+    return 'It\'s your turn, Player ' + currentPlayer;
+  };
 
 //Switch to the next player after each turn
 const changePlayer = function () {
-  if (currentPlayer === playerX) {
-    currentPlayer = playerO;
-  } else {
-    currentPlayer = playerX;
-  }
-};
+    if (currentPlayer === playerX) {
+      currentPlayer = playerO;
+    } else {
+      currentPlayer = playerX;
+    }
+  };
 
 //Function to assign x or o to square depending on player#
 const symbolValue = function (player, divClassNum) {
@@ -46,14 +42,14 @@ const isSpaceEmpty = function (squareNum) {
 
 //states whether the board is filled
 const isBoardFilled = function (arr) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === '') {
-      return false;
-    }
-  }
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === '') {
+          return false;
+        }
+      }
 
-  return true;
-};
+      return true;
+    };
 
 //Arrays Equal to test for isWinner Function
 function arraysEqual(array1, array2) {
@@ -82,7 +78,6 @@ const isWinner = function (arr) {
   let winSix = [2, 4, 6];
   let winSeven = [1, 4, 7];
   let winEight = [3, 4, 5];
-
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === 'x') {
       tempArrayX.push(i);
@@ -99,7 +94,6 @@ const isWinner = function (arr) {
   let winComboSixX = arraysEqual(tempArrayX, winSix);
   let winComboSevenX = arraysEqual(tempArrayX, winSeven);
   let winComboEightX = arraysEqual(tempArrayX, winEight);
-
   let winComboOneY = arraysEqual(tempArrayY, winOne);
   let winComboTwoY = arraysEqual(tempArrayY, winTwo);
   let winComboThreeY = arraysEqual(tempArrayY, winThree);
@@ -108,88 +102,73 @@ const isWinner = function (arr) {
   let winComboSixY = arraysEqual(tempArrayY, winSix);
   let winComboSevenY = arraysEqual(tempArrayY, winSeven);
   let winComboEightY = arraysEqual(tempArrayY, winEight);
-
   console.log(tempArrayX);
-
   if (winComboOneX || winComboTwoX || winComboThreeX || winComboFourX || winComboFiveX || winComboSixX || winComboSevenX || winComboEightX || winComboOneY || winComboTwoY || winComboThreeY || winComboFourY || winComboFiveY || winComboSixY || winComboSevenY || winComboEightY) {
-
     return true;
   }
 };
 
 //Test for a winner using isBoardFilled and isWinner
-// const gameOver = function (arr) {
-//   let isBF = isBoardFilled(arr);
-//   let isW = isWinner(arr);
-//   if (isBF || isW) {
-//     return true;
-//     // TODO add an offclick
-//       }
-// };
+const gameOver = function (arr) {
+  let isBF = isBoardFilled(arr);
+  let isW = isWinner(arr);
+  if (isBF || isW) {
+    $('.game-box').off('click');
+    return true;
+  }
+};
 
 //Function nested in jQuery to start over
 const clearBoard = function () {
-  gameBoard = ['', '', '', '', '', '', '', '', ''];
-  currentPlayer = playerX;
-  playSymbol = '';
-  currentPlayTurn = '';
+      for (let i = 0; i < gameBoard.length; i++) {
+        gameBoard[i] = '';
+        currentPlayer = 'X';
 
-  // needs an on.click function
-  console.log('board is clear js');
+      } $('.game-board-container div').on('click', function () {
 
-  // messageText(currentPlayer);
-  currentPlayTurn = messageText(currentPlayer);
-  $('.player-turn').text(currentPlayTurn);
-  $('.message-player').text('');
-  $('.game-box').text('');
-  $('.game-box').on('click');
-};
+        let divClass = $(this).attr('class');
+        let divClassNum = parseInt(divClass);
+        console.log(divClassNum);
+        changePlayer();
+        if (isSpaceEmpty(divClassNum) === true) {
+          $('.message-player').text('');
+          symbolValue(currentPlayer, divClassNum);
+          $(this).text(playSymbol);
+          if (gameOver(gameBoard) === true) {
+            $('.player-turn').text('');
+            $('.message-player').text('Game Over');
+          }else {
+            currentPlayTurn = messageText(currentPlayer);
+            $('.player-turn').text(currentPlayTurn);
+          }
+        }else {
+          $('.message-player').text('This square is taken! Pick again.');
+        }
+
+        console.log(gameBoard);
+      });
+
+      // gameBoard = ["", "", "", "", "", "", "", "", ""];
+      // currentPlayer = playerX;
+      // playSymbol = "";
+      // currentPlayTurn = "";
+      // gameOver()
+      console.log('board is clear js');
+
+      // messageText(currentPlayer);
+      currentPlayTurn = messageText(currentPlayer);
+      $('.player-turn').text(currentPlayTurn);
+      $('.message-player').text('');
+      $('.game-box').text('');
+    };
 
 //jQuery//
 //Onload Functions for jQuery
-$(() => {
-
-  //console log index number
-  $('.game-board-container div').on('click', function () {
-    let divClass = $(this).attr('class');
-    let divClassNum = parseInt(divClass);
-    console.log(divClassNum);
-
-    if (isSpaceEmpty(divClassNum) === true) {
-      $('.message-player').text('');
-      symbolValue(currentPlayer, divClassNum);
-      $(this).text(playSymbol);
-
-      if (isWinner(gameBoard) === true) {
-        $('.player-turn').text('');
-        $('.message-player').text('You Win');
-        $('.game-box').off('click');
-      }
-
-      if (isBoardFilled(gameBoard) === true) {
-        $('.player-turn').text('');
-        $('.message-player').text('Game Over!');
-      }
-
-      // TODO needs to be removed
-      // if (gameOver(gameBoard) === true) {
-      //       $(".player-turn").text('');
-      //       $(".message-player").text("Game Over");
-      //       }
-      // TODO add in if winner offclick and message
-      // TODO and in if board full offclick and message
-      else {
-        changePlayer();
-        currentPlayTurn = messageText(currentPlayer);
-        $('.player-turn').text(currentPlayTurn);
-      }
-    } else {
-      $('.message-player').text('This square is taken! Pick again.');
-    }
-
-    console.log(gameBoard);
-  });
-});
+// $(() => {
+//
+// //console log index number
+//
+// });
 $('#reset-button').on('click', function () {
   console.log('reset completed');
   clearBoard();
