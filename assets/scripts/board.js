@@ -126,15 +126,20 @@ const clearBoard = function () {
         currentPlayer = playerX;
         playSymbol = '';
         currentPlayTurn = '';
+        currentPlayer = '';
 
-        // currentPlayer = 'X';
       }
 
       $('.game-board-container div').on('click', function () {
+        const messageText = function (currentPlayer) {
+            return 'It\'s your turn, Player ' + currentPlayer;
+          };
+
         let divClass = $(this).attr('class');
         let divClassNum = parseInt(divClass);
         console.log(divClassNum);
         if (isSpaceEmpty(divClassNum) === true) {
+
           $('.message-player').text('');
           symbolValue(currentPlayer, divClassNum);
           $(this).text(playSymbol);
@@ -142,12 +147,13 @@ const clearBoard = function () {
             $('.player-turn').text('');
             $('.message-player').text('Game Over');
           }else {
+            changePlayer();
             currentPlayTurn = messageText(currentPlayer);
             $('.player-turn').text(currentPlayTurn);
-            changePlayer();
+
           }
         }else {
-          $('.message-player').text('This square is taken! Pick again.');
+          $('.player-turn').text(currentPlayTurn);
         }
 
         console.log(gameBoard);
@@ -160,11 +166,12 @@ const clearBoard = function () {
       // gameOver()
       console.log('board is clear js');
 
-      // messageText(currentPlayer);
-      currentPlayTurn = messageText(currentPlayer);
+      messageText(currentPlayer);
+      currentPlayTurn = messageText(currentPlayTurn);
       $('.player-turn').text(currentPlayTurn);
       $('.message-player').text('');
       $('.game-box').text('');
+      changePlayer();
     };
 
 //jQuery//
