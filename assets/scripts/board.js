@@ -131,6 +131,7 @@ function clearBoard(event) {
   currentPlayer = '';
   playSymbol = 'x';
   currentPlayTurn = '';
+  over = false;
   console.log(gameEvent);
   $('.game-board-container div').on('click', function () {
     const messageText = function (currentPlayer) {

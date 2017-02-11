@@ -1,7 +1,7 @@
 'use strict';
 
 const success = (data) => {
-  if (data) { console.log(data); }
+  if (data) {console.log(data); }
 };
 
 const failure = (error) => {

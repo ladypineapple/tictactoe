@@ -13,7 +13,7 @@ const onCreateGame = function (event) {
     .then((response) => {
       console.log(response.game);
       store.game = response.game;
-    $('.gameid').text(store.game.id + '');
+      $('.gameid').text(store.game.id + '');
       console.log(store.game);
       return store;
     })
@@ -31,11 +31,10 @@ const onShowGames = function (event) {
     ;
 };
 
-
 const onGetGame = function (event) {
   event.preventDefault();
-  let id = parseInt($('#game-id').val());
-  api.getGame(id);
+  let id = parseInt($('.gameid').val());
+  api.getGame(id)
   .then(ui.success)
   .catch(ui.failure)
   ;

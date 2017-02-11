@@ -67,8 +67,8 @@ const updateGame = function (id, gamePiece, isOver) {
 // };
 
 module.exports = {
-  createGame,
   getAllGames,
-  updateGame,
   getGame,
+  createGame,
+  updateGame,
 };
