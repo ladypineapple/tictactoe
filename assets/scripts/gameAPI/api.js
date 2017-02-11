@@ -14,6 +14,16 @@ const getAllGames = function () {
   });
 };
 
+const getGame = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
+
 const createGame = function () {
   return $.ajax({
     url: config.apiOrigin + '/games',
@@ -23,7 +33,6 @@ const createGame = function () {
     },
   });
 };
-
 
 const updateGame = function (id, gamePiece, isOver) {
   console.log(store);
@@ -42,16 +51,6 @@ const updateGame = function (id, gamePiece, isOver) {
         },
         over: isOver,
       },
-    },
-  });
-};
-
-const getGame = function (id) {
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + id,
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`,
     },
   });
 };

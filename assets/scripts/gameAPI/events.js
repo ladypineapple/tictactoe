@@ -1,28 +1,19 @@
 'use strict';
 
-const getFormFields = require(`../../../lib/get-form-fields`);
+// const getFormFields = require(`../../../lib/get-form-fields`);
 
 const board = require('../board.js');
 const api = require('./api');
 const ui = require('./ui');
 const store = require('./store');
 
-const onShowGames = function (event) {
-  event.preventDefault();
-
-  api.getAllGames()
-    .then(ui.success)
-    .catch(ui.failure)
-    ;
-};
-
 const onCreateGame = function (event) {
   event.preventDefault();
-
   api.createGame()
     .then((response) => {
       console.log(response.game);
       store.game = response.game;
+    $('.gameid').text(store.game.id + '');
       console.log(store.game);
       return store;
     })
@@ -32,14 +23,24 @@ const onCreateGame = function (event) {
     ;
 };
 
-const onGet = function (event) {
+const onShowGames = function (event) {
   event.preventDefault();
-
   api.getAllGames()
     .then(ui.success)
     .catch(ui.failure)
     ;
 };
+
+
+const onGetGame = function (event) {
+  event.preventDefault();
+  let id = parseInt($('#game-id').val());
+  api.getGame(id);
+  .then(ui.success)
+  .catch(ui.failure)
+  ;
+};
+
 // const onSignIn = function (event) {
 //   event.preventDefault();
 //
@@ -80,6 +81,7 @@ const onGet = function (event) {
 const addHandlers = () => {
   $('#reset-button').on('click', onCreateGame);
   $('#show-games').on('click', onShowGames);
+  $('#get-game').on('submit', onGetGame);
 };
 
 module.exports = {

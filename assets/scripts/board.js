@@ -124,7 +124,7 @@ const gameOver = function (arr) {
 };
 
 //Function nested in jQuery to start over
-function clearBoard (event) {
+function clearBoard(event) {
   // gameBoard[i] = '';
   let gameEvent = event;
   gameBoard = ['', '', '', '', '', '', '', '', ''];
@@ -176,7 +176,7 @@ function clearBoard (event) {
   $('.message-player').text('');
   $('.game-box').text('');
   changePlayer();
-};
+}
 
 //jQuery//
 //Onload Functions for jQuery

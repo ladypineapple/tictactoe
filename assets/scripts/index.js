@@ -19,6 +19,5 @@ require('./example');
 $(() => {
   // TODO add handlers
   events.addHandlers();
-
   gameEvents.addHandlers();
 });
