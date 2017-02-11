@@ -1,8 +1,13 @@
 'use strict';
+
+const gameAPI = require('./gameAPI/api.js');
+const gameEvents = require('./gameAPI/events.js');
+
 let playerX = 1;
 let playerO = 2;
 let currentPlayer = playerX;
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
+let over = false;
 let playSymbol;
 let currentPlayTurn;
 
@@ -119,60 +124,59 @@ const gameOver = function (arr) {
 };
 
 //Function nested in jQuery to start over
-const clearBoard = function () {
-      for (let i = 0; i < gameBoard.length; i++) {
-        gameBoard[i] = '';
-        gameBoard = ['', '', '', '', '', '', '', '', ''];
-        currentPlayer = playerX;
-        playSymbol = '';
-        currentPlayTurn = '';
-        currentPlayer = '';
+function clearBoard (event) {
+  // gameBoard[i] = '';
+  let gameEvent = event;
+  gameBoard = ['', '', '', '', '', '', '', '', ''];
+  currentPlayer = '';
+  playSymbol = 'x';
+  currentPlayTurn = '';
+  console.log(gameEvent);
+  $('.game-board-container div').on('click', function () {
+    const messageText = function (currentPlayer) {
+      return 'It\'s your turn, Player ' + currentPlayer;
+    };
+
+    let divClass = $(this).attr('class');
+    let divClassNum = parseInt(divClass);
+    console.log(divClassNum);
+    if (isSpaceEmpty(divClassNum) === true) {
+
+      $('.message-player').text('');
+      symbolValue(currentPlayer, divClassNum);
+      $(this).text(playSymbol);
+      if (gameOver(gameBoard) === true) {
+        $('.player-turn').text('');
+        $('.message-player').text('Game Over');
+        over = true;
+      } else {
+        changePlayer();
+        currentPlayTurn = messageText(currentPlayer);
+        $('.player-turn').text(currentPlayTurn);
 
       }
-
-      $('.game-board-container div').on('click', function () {
-        const messageText = function (currentPlayer) {
-            return 'It\'s your turn, Player ' + currentPlayer;
-          };
-
-        let divClass = $(this).attr('class');
-        let divClassNum = parseInt(divClass);
-        console.log(divClassNum);
-        if (isSpaceEmpty(divClassNum) === true) {
-
-          $('.message-player').text('');
-          symbolValue(currentPlayer, divClassNum);
-          $(this).text(playSymbol);
-          if (gameOver(gameBoard) === true) {
-            $('.player-turn').text('');
-            $('.message-player').text('Game Over');
-          }else {
-            changePlayer();
-            currentPlayTurn = messageText(currentPlayer);
-            $('.player-turn').text(currentPlayTurn);
-
-          }
-        }else {
-          $('.player-turn').text(currentPlayTurn);
-        }
-
-        console.log(gameBoard);
-      });
-
-      // gameBoard = ["", "", "", "", "", "", "", "", ""];
-      // currentPlayer = playerX;
-      // playSymbol = "";
-      // currentPlayTurn = "";
-      // gameOver()
-      console.log('board is clear js');
-
-      messageText(currentPlayer);
-      currentPlayTurn = messageText(currentPlayTurn);
+    } else {
       $('.player-turn').text(currentPlayTurn);
-      $('.message-player').text('');
-      $('.game-box').text('');
-      changePlayer();
-    };
+    }
+
+    console.log(event.target.id);
+    gameAPI.updateGame(this.id, playSymbol, over);
+  });
+
+  // gameBoard = ["", "", "", "", "", "", "", "", ""];
+  // currentPlayer = playerX;
+  // playSymbol = "";
+  // currentPlayTurn = "";
+  // gameOver()
+  console.log('board is clear js');
+
+  messageText(currentPlayer);
+  currentPlayTurn = messageText(currentPlayTurn);
+  $('.player-turn').text(currentPlayTurn);
+  $('.message-player').text('');
+  $('.game-box').text('');
+  changePlayer();
+};
 
 //jQuery//
 //Onload Functions for jQuery
@@ -181,7 +185,8 @@ const clearBoard = function () {
 // //console log index number
 //
 // });
-$('#reset-button').on('click', function () {
-  console.log('reset completed');
-  clearBoard();
-});
+// $('#reset-button').on('click', clearBoard());
+
+module.exports = {
+  clearBoard,
+};

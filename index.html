@@ -5,14 +5,14 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Barrio" >
+      <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Barrio" > -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-      <link href="style.css" rel="stylesheet">
+      <!-- <link href="style.css" rel="stylesheet"> -->
       <!-- adds link to css style sheet -->
 
       <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-      <script src="assets/scripts/board.js" type="text/javascript" charset="utf-8" defer></script>
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="assets/scripts/board.js" type="text/javascript" charset="utf-8" defer></script> -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
       <style>
@@ -90,18 +90,18 @@
           <br>
         <!-- Need to use two classes for each game square -->
         <!-- First class needs leading numbers for game arrays -->
-          <div class = "game-board-container">
-              <div class="0square game-box"></div>
-              <div class="1square game-box"></div>
-              <div class="2square game-box"></div>
+          <div class="game-board-container">
+              <div id="0" class="0square game-box"></div>
+              <div id="1" class="1square game-box"></div>
+              <div id="2" class="2square game-box"></div>
 
-              <div class="3square game-box"></div>
-              <div class="4square game-box"></div>
-              <div class="5square game-box"></div>
+              <div id="3" class="3square game-box"></div>
+              <div id="4" class="4square game-box"></div>
+              <div id="5" class="5square game-box"></div>
 
-              <div class="6square game-box"></div>
-              <div class="7square game-box"></div>
-              <div class="8square game-box"></div>
+              <div id="6" class="6square game-box"></div>
+              <div id="7" class="7square game-box"></div>
+              <div id="8" class="8square game-box"></div>
         </div>
       </div>
       </div>
@@ -110,5 +110,7 @@
 
         <input id="reset-button" class="reset-button" type="button" value="Start Game" />
         <!-- Reset button to clear board -->
+        <input id="show-games" class="button" type="button" value="Show Games" />
+        <input id="get-game" class="button" type="button" value="Get Game" />
     </body>
 </html>
