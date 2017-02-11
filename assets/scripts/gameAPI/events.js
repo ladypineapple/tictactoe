@@ -32,10 +32,10 @@ const onCreateGame = function (event) {
     ;
 };
 
-const onGetGame = function (event) {
+const onGet = function (event) {
   event.preventDefault();
 
-  api.getGame(store.game.id)
+  api.getAllGames()
     .then(ui.success)
     .catch(ui.failure)
     ;
@@ -78,7 +78,6 @@ const onGetGame = function (event) {
 // };
 
 const addHandlers = () => {
-  $('#get-game').on('click', onGetGame);
   $('#reset-button').on('click', onCreateGame);
   $('#show-games').on('click', onShowGames);
 };
