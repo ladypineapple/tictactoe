@@ -26,7 +26,7 @@ const onCreateGame = function (event) {
 const onShowGames = function (event) {
   event.preventDefault();
   api.getAllGames()
-    .then(ui.success)
+    .then(ui.showGamesSuccess)
     .catch(ui.failure)
     ;
 };
@@ -35,7 +35,7 @@ const onGetGame = function (event) {
   event.preventDefault();
   let id = parseInt($('.gameid').val());
   api.getGame(id)
-  .then(ui.success)
+  .then(ui.getGameSuccess)
   .catch(ui.failure)
   ;
 };

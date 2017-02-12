@@ -4,12 +4,32 @@ const success = (data) => {
   if (data) {console.log(data); }
 };
 
+const getGameSuccess = (data) => {
+  $('.message-player').show();
+  $('.message-player').text('You\'ve played ' + data.games.length + ' times!');
+
+  // if (data) {
+  //   console.log(data);
+  // }
+};
+
+const showGamesSuccess = (data) => {
+  $('.message-player').show();
+  $('.message-player').text('You\'ve played ' + data.games.length + ' times!');
+
+  // if (data) {
+  //   console.log(data);
+  // }
+};
+
 const failure = (error) => {
   console.error(error);
   $('.message-player').text('There was an error. Please try again.');
 };
 
 module.exports = {
+  showGamesSuccess,
+  getGameSuccess,
   failure,
   success,
 };
