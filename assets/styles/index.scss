@@ -1,2 +1,53 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Barrio');
+
+body {
+  font-family: 'Barrio', cursive;
+  margin:0 auto;
+  text-align:center;
+  margin-top:50px;
+  color:#000080;
+  /*background:#9FC4D4;*/
+}
+
+p {
+  font-family: 'Barrio', cursive;
+  font-size: 40px;
+  color: #2e4c7c;
+  }/*game-board-container {
+
+}*/
+/*sign-up{
+  background-color: #9FC4D4;
+}*/
+.container-fluid{
+  font-family: 'Barrio', cursive;
+  color: #2e4c7c;
+}
+.game-play{
+    font-family: 'Barrio', cursive;
+    color: #2e4c7c;
+}
+.game-box {
+    color: #2e4c7c;
+    margin: 0 50 0 50;
+    float: left;
+    border: 2px solid white;
+    background: #b8c1d1;
+    text-align: center ;
+    height: 80px ;
+    width:33%;
+    font-size: 60px;
+    font-family: 'Barrio', cursive;
+    vertical-align: middle;
+}
+/*.row1{
+  float:left;
+}
+.row2{
+  float:left;
+}
+.row3{
+  float:left;
+}*/

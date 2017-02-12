@@ -4,14 +4,15 @@ const getFormFields = require(`../../../lib/get-form-fields`);
 
 const api = require('./api');
 const ui = require('./ui');
-const store = require('.scripts/store');
+const store = require('./store');
 
 const onSignUp = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.signUp(data)
-    .then(ui.success)
-    .catch(ui.failure)
+    .then(ui.signUpSuccess)
+
+    // .catch(ui.failure)
     ;
 };
 
@@ -19,23 +20,21 @@ const onSignIn = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.signIn(data)
-    .then((response) => {
-      store.user = response.user;
-      return store.user;
-    })
-    .then(ui.success)
-    .then(() => {
-      console.log(store);
-    })
-    .catch(ui.failure)
-    ;
+  .then((response) => {
+    store.user = response.user;
+    return store;
+  })
+  .then(ui.signInSuccess)
+
+  // .catch(ui.failure)
+  ;
 };
 
 const onChangePassword = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.changePassword(data)
-    .then(ui.success)
+    .then(ui.changePasswordSuccess)
     .catch(ui.failure)
     ;
 };
@@ -47,12 +46,18 @@ const onSignOut = function (event) {
       delete store.user;
       return store;
     })
-    .then(ui.success)
-    .catch(ui.failure)
+    .then(ui.signOutSuccess)
+
+  // .catch(ui.failure)
     ;
 };
 
 const addHandlers = () => {
+  $('#sign-up').show();
+  $('#sign-in').show();
+  $('#sign-out').hide();
+  $('#change-password').hide();
+  $('#game-board-container').hide();
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
