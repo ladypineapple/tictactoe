@@ -57,7 +57,7 @@ const addHandlers = () => {
   $('#sign-in').show();
   $('#sign-out').hide();
   $('#change-password').hide();
-  $('#game-play').hide();
+  $('#game-board-container').hide();
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);

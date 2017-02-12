@@ -22,7 +22,8 @@ const signInSuccess = () => {
   $('#sign-out').show();
   $('#reset-button').show();
   $('#show-games').show();
-  $('#get-game').show();
+  $('#game-board-container').show();
+  $('.game-box').on('click');
   $('.message-player').text('Success. Start Game to play.');
 
   // $('#board').show();
@@ -38,16 +39,19 @@ const changePasswordSuccess = () => {
 
 const signOutSuccess = () => {
     $('#sign-out').hide();
-    $('#game-box').val('');
+    $('#game-board-container').val('');
+    $('.game-box').val('');
     $('#change-password').hide();
     $('#reset-button').hide();
     $('#show-games').hide();
-    $('#get-game').hide();
-    $('#game-box').hide();
+    $('#game-board-container').hide();
     $('#sign-in').show();
     $('#sign-up').show();
     $('#sign-up').val('');
     $('#sign-in').val('');
+    $('.game-box').off('click');
+    $('.player-turn').text('');
+    $('.message-player').text('You are signed out.');
 
     // if (data) {
     //   console.log(data);
