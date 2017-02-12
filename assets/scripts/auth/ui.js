@@ -32,7 +32,26 @@ const signInSuccess = () => {
 };
 
 const changePasswordSuccess = () => {
+    $('#change-password').val('');
     $('.message-player').text('Your password has been changed.');
+  };
+
+const signOutSuccess = () => {
+    $('#sign-out').hide();
+    $('#game-box').val('');
+    $('#change-password').hide();
+    $('#reset-button').hide();
+    $('#show-games').hide();
+    $('#get-game').hide();
+    $('#game-play').hide();
+    $('#sign-in').show();
+    $('#sign-up').show();
+    $('#sign-up').val('');
+    $('#sign-in').val('');
+
+    // if (data) {
+    //   console.log(data);
+    // }
   };
 
 const failure = (error) => {
@@ -44,6 +63,7 @@ module.exports = {
   changePasswordSuccess,
   signUpSuccess,
   signInSuccess,
+  signOutSuccess,
   failure,
   success,
 };

@@ -18,9 +18,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault();
-
   let data = getFormFields(event.target);
-
   api.signIn(data)
   .then((response) => {
     store.user = response.user;
@@ -48,8 +46,9 @@ const onSignOut = function (event) {
       delete store.user;
       return store;
     })
-    .then(ui.success)
-    .catch(ui.failure)
+    .then(ui.signOutSuccess)
+
+  // .catch(ui.failure)
     ;
 };
 
