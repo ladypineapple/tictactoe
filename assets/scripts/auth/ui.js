@@ -13,6 +13,24 @@ const signUpSuccess = () => {
   // }
 };
 
+const signInSuccess = () => {
+  $('#sign-up').val('');
+  $('#sign-in').val('');
+  $('#sign-up').hide();
+  $('#sign-in').hide();
+  $('#change-password').show();
+  $('#sign-out').show();
+  $('#reset-button').show();
+  $('#show-games').show();
+  $('#get-game').show();
+  $('.message-player').text('Success. Start Game to play.');
+
+  // $('#board').show();
+  // if (data) {
+  //   console.log(data);
+  // }
+};
+
 const failure = (error) => {
   console.error(error);
   $('.message-player').text('There was an error. Please try again.');
@@ -20,6 +38,7 @@ const failure = (error) => {
 
 module.exports = {
   signUpSuccess,
+  signInSuccess,
   failure,
   success,
 };
