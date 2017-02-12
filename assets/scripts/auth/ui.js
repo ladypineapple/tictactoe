@@ -43,7 +43,7 @@ const signOutSuccess = () => {
     $('#reset-button').hide();
     $('#show-games').hide();
     $('#get-game').hide();
-    $('#game-play').hide();
+    $('#game-box').hide();
     $('#sign-in').show();
     $('#sign-up').show();
     $('#sign-up').val('');

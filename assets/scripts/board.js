@@ -13,7 +13,7 @@ let currentPlayTurn;
 
 // Message for who's turn it is
 const messageText = function (currentPlayer) {
-    return 'It\'s your turn, Player ' + currentPlayer;
+    return 'Select any square to start. ' + currentPlayer;
   };
 
 //Switch to the next player after each turn
