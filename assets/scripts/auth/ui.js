@@ -6,6 +6,7 @@ const success = (data) => {
 
 const signUpSuccess = () => {
   $('#sign-up').hide().val('');
+  $('.message-player').text('Success. Please Sign in to play.');
 
   // if (data) {
   //   console.log(data);
