@@ -53,10 +53,8 @@ const isBoardFilled = function (arr) {
         }
       }
 
-      {
-        $('.game-box').off('click');
-        return true;
-      }
+      $('.game-box').off('click');
+      return true;
     };
 
 //Arrays Equal to test for isWinner Function
@@ -111,21 +109,21 @@ const isWinner = function (arr) {
   let winComboSevenY = arraysEqual(tempArrayY, winSeven);
   let winComboEightY = arraysEqual(tempArrayY, winEight);
   console.log(tempArrayX);
-  if (winComboOneX || winComboTwoX || winComboThreeX || winComboFourX || winComboFiveX || winComboSixX || winComboSevenX || winComboEightX || winComboOneY || winComboTwoY || winComboThreeY || winComboFourY || winComboFiveY || winComboSixY || winComboSevenY || winComboEightY)       {
+  if (winComboOneX || winComboTwoX || winComboThreeX || winComboFourX || winComboFiveX || winComboSixX || winComboSevenX || winComboEightX || winComboOneY || winComboTwoY || winComboThreeY || winComboFourY || winComboFiveY || winComboSixY || winComboSevenY || winComboEightY) {
     $('.game-box').off('click');
     return true;
   }
 };
 
 //Test for a winner using isBoardFilled and isWinner
-const gameOver = function (arr) {
-  let isBF = isBoardFilled(arr);
-  let isW = isWinner(arr);
-  if (isBF || isW) {
-    $('.game-box').off('click');
-    return true;
-  }
-};
+// const gameOver = function (arr) {
+//   let isBF = isBoardFilled(arr);
+//   let isW = isWinner(arr);
+//   if (isBF || isW) {
+//     $('.game-box').off('click');
+//     return true;
+//   }
+// };
 
 //Function nested in jQuery to start over
 function clearBoard(event) {
@@ -154,14 +152,22 @@ function clearBoard(event) {
       symbolValue(currentPlayer, divClassNum);
       $(this).text(playSymbol);
       if (isBoardFilled(gameBoard) === true) {
+
         $('.player-turn').text('');
         $('.message-player').text('Womp Womp. You tied.');
         over = true;
-        if (isWinner(gameBoard) === true) {
-          $('.player-turn').text('');
-          $('.message-player').text('You Win!');
-          over = true;
-      } else {
+      }if (isWinner(gameBoard) === true) {
+
+        $('.player-turn').text('');
+        $('.message-player').text('Hey Hey! You win.');
+        over = true;
+
+        // }if (gameOver(gameBoard) === true) {
+
+        //   $('.player-turn').text('');
+        //   $('.message-player').text('Game Over');
+        //   over = true;
+      }else {
         changePlayer();
         currentPlayTurn = messageText(currentPlayer);
         $('.player-turn').text(currentPlayTurn);
