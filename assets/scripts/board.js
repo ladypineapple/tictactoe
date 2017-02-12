@@ -127,11 +127,14 @@ const gameOver = function (arr) {
 function clearBoard(event) {
   // gameBoard[i] = '';
   let gameEvent = event;
+  playerX = 1;
+  playerO = 2;
   gameBoard = ['', '', '', '', '', '', '', '', ''];
   currentPlayer = '';
   playSymbol = 'x';
   currentPlayTurn = '';
   over = false;
+
   console.log(gameEvent);
   $('.game-board-container div').on('click', function () {
     const messageText = function (currentPlayer) {
