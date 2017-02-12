@@ -31,12 +31,17 @@ const signInSuccess = () => {
   // }
 };
 
+const changePasswordSuccess = () => {
+    $('.message-player').text('Your password has been changed.');
+  };
+
 const failure = (error) => {
   console.error(error);
   $('.message-player').text('There was an error. Please try again.');
 };
 
 module.exports = {
+  changePasswordSuccess,
   signUpSuccess,
   signInSuccess,
   failure,
