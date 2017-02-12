@@ -53,7 +53,10 @@ const isBoardFilled = function (arr) {
         }
       }
 
-      return true;
+      {
+        $('.game-box').off('click');
+        return true;
+      }
     };
 
 //Arrays Equal to test for isWinner Function
@@ -108,7 +111,8 @@ const isWinner = function (arr) {
   let winComboSevenY = arraysEqual(tempArrayY, winSeven);
   let winComboEightY = arraysEqual(tempArrayY, winEight);
   console.log(tempArrayX);
-  if (winComboOneX || winComboTwoX || winComboThreeX || winComboFourX || winComboFiveX || winComboSixX || winComboSevenX || winComboEightX || winComboOneY || winComboTwoY || winComboThreeY || winComboFourY || winComboFiveY || winComboSixY || winComboSevenY || winComboEightY) {
+  if (winComboOneX || winComboTwoX || winComboThreeX || winComboFourX || winComboFiveX || winComboSixX || winComboSevenX || winComboEightX || winComboOneY || winComboTwoY || winComboThreeY || winComboFourY || winComboFiveY || winComboSixY || winComboSevenY || winComboEightY)       {
+    $('.game-box').off('click');
     return true;
   }
 };
@@ -149,10 +153,14 @@ function clearBoard(event) {
       $('.message-player').text('');
       symbolValue(currentPlayer, divClassNum);
       $(this).text(playSymbol);
-      if (gameOver(gameBoard) === true) {
+      if (isBoardFilled(gameBoard) === true) {
         $('.player-turn').text('');
-        $('.message-player').text('Game Over');
+        $('.message-player').text('Womp Womp. You tied.');
         over = true;
+        if (isWinner(gameBoard) === true) {
+          $('.player-turn').text('');
+          $('.message-player').text('You Win!');
+          over = true;
       } else {
         changePlayer();
         currentPlayTurn = messageText(currentPlayer);
