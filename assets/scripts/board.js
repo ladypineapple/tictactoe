@@ -13,7 +13,7 @@ let currentPlayTurn;
 
 // Message for who's turn it is
 const messageText = function (currentPlayer) {
-    return 'Select any square to start. ' + currentPlayer;
+    return currentPlayer;
   };
 
 //Switch to the next player after each turn
@@ -136,6 +136,7 @@ function clearBoard(event) {
   playSymbol = 'x';
   currentPlayTurn = '';
   over = false;
+  $('.player-turn').text('Let\'s Play');
 
   // console.log(gameEvent);
   $('.game-board-container div').on('click', function () {
@@ -196,14 +197,14 @@ function clearBoard(event) {
   changePlayer();
 }
 
-// jQuery//
+// jQuery//git p
 // Onload Functions for jQuery
 $(() => {
 
-//console log index number
+  //console log index number
 
 });
-$('#reset-button').on('click', clearBoard());
+$('#reset-button').on('click', clearBoard(gameBoard));
 
 module.exports = {
   clearBoard,
