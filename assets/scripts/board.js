@@ -111,20 +111,19 @@ const isWinner = function (arr) {
 
   // console.log(tempArrayX);
   if (winComboOneX || winComboTwoX || winComboThreeX || winComboFourX || winComboFiveX || winComboSixX || winComboSevenX || winComboEightX || winComboOneY || winComboTwoY || winComboThreeY || winComboFourY || winComboFiveY || winComboSixY || winComboSevenY || winComboEightY) {
-    $('.game-box').off('click');
     return true;
   }
 };
 
 //Test for a winner using isBoardFilled and isWinner
-// const gameOver = function (arr) {
-//   let isBF = isBoardFilled(arr);
-//   let isW = isWinner(arr);
-//   if (isBF || isW) {
-//     $('.game-box').off('click');
-//     return true;
-//   }
-// };
+const gameOver = function (arr) {
+  let isBF = isBoardFilled(arr);
+  let isW = isWinner(arr);
+  if (isBF || isW) {
+    $('.game-box').off('click');
+    return true;
+  }
+};
 
 //Function nested in jQuery to start over
 function clearBoard(event) {
@@ -153,22 +152,22 @@ function clearBoard(event) {
       $('.message-player').text('');
       symbolValue(currentPlayer, divClassNum);
       $(this).text(playSymbol);
-      if (isBoardFilled(gameBoard) === true) {
 
-        $('.player-turn').text('');
-        $('.message-player').text('Womp Womp. You tied.');
+      // if (isBoardFilled(gameBoard) === true) {
+      //   $('.game-board-container div').off('click');
+      //   $('.player-turn').text('');
+      //   $('.message-player').text('Womp Womp. You tied.');
+      //   over = true;
+      // }if (isWinner(gameBoard) === true) {
+      //   $('.game-board-container div').off('click');
+      //   $('.player-turn').text('');
+      //   $('.message-player').text('Hey Hey! You win.');
+      //   over = true;
+
+      if (gameOver(gameBoard) === true) {
+        // $('.player-turn').text('');
+        $('.player-turn').text('Game Over');
         over = true;
-      }if (isWinner(gameBoard) === true) {
-
-        $('.player-turn').text('');
-        $('.message-player').text('Hey Hey! You win.');
-        over = true;
-
-        // }if (gameOver(gameBoard) === true) {
-
-        //   $('.player-turn').text('');
-        //   $('.message-player').text('Game Over');
-        //   over = true;
       }else {
         changePlayer();
         currentPlayTurn = messageText(currentPlayer);
@@ -197,14 +196,14 @@ function clearBoard(event) {
   changePlayer();
 }
 
-//jQuery//
-//Onload Functions for jQuery
-// $(() => {
-//
-// //console log index number
-//
-// });
-// $('#reset-button').on('click', clearBoard());
+// jQuery//
+// Onload Functions for jQuery
+$(() => {
+
+//console log index number
+
+});
+$('#reset-button').on('click', clearBoard());
 
 module.exports = {
   clearBoard,
