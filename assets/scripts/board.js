@@ -155,10 +155,12 @@ function clearBoard(event) {
       $(this).text(playSymbol);
       if (isBoardFilled(gameBoard) === true) {
 
+        $('.player-turn').text('');
         $('.message-player').text('Womp Womp. You tied.');
         over = true;
       }if (isWinner(gameBoard) === true) {
 
+        $('.player-turn').text('');
         $('.message-player').text('Hey Hey! You win.');
         over = true;
 
@@ -170,11 +172,11 @@ function clearBoard(event) {
       }else {
         changePlayer();
         currentPlayTurn = messageText(currentPlayer);
-        $('.player-turn').text(currentPlayTurn);
+        $('.message-player').text(currentPlayTurn);
 
       }
     } else {
-      $('.player-turn').text(currentPlayTurn);
+      $('.message-player').text(currentPlayTurn);
     }
 
     // console.log(event.target.id);
@@ -186,10 +188,10 @@ function clearBoard(event) {
   // playSymbol = "";
   // currentPlayTurn = "";
   // gameOver()
-  // console.log('board is clear js');
 
   messageText(currentPlayer);
   currentPlayTurn = messageText(currentPlayTurn);
+  $('.player-turn').text(currentPlayTurn);
   $('.message-player').text('');
   $('.game-box').text('');
   changePlayer();
