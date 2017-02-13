@@ -176,7 +176,7 @@ function clearBoard(event) {
 
       }
     } else {
-      $('.message-player').text(currentPlayTurn);
+      $('.message-player').text('');
     }
 
     // console.log(event.target.id);
