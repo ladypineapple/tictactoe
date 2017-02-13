@@ -53,6 +53,7 @@ const isBoardFilled = function (arr) {
         }
       }
 
+      $('.message-player').text('Womp Womp. You tied.');
       $('.game-box').off('click');
       return true;
     };
