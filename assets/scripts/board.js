@@ -191,7 +191,7 @@ function clearBoard(event) {
 
   messageText(currentPlayer);
   currentPlayTurn = messageText(currentPlayTurn);
-  $('.player-turn').text(currentPlayTurn);
+  $('.message-player').text(currentPlayTurn);
   $('.message-player').text('');
   $('.game-box').text('');
   changePlayer();
