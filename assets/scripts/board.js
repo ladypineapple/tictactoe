@@ -108,7 +108,8 @@ const isWinner = function (arr) {
   let winComboSixY = arraysEqual(tempArrayY, winSix);
   let winComboSevenY = arraysEqual(tempArrayY, winSeven);
   let winComboEightY = arraysEqual(tempArrayY, winEight);
-  console.log(tempArrayX);
+
+  // console.log(tempArrayX);
   if (winComboOneX || winComboTwoX || winComboThreeX || winComboFourX || winComboFiveX || winComboSixX || winComboSevenX || winComboEightX || winComboOneY || winComboTwoY || winComboThreeY || winComboFourY || winComboFiveY || winComboSixY || winComboSevenY || winComboEightY) {
     $('.game-box').off('click');
     return true;
@@ -137,7 +138,7 @@ function clearBoard(event) {
   currentPlayTurn = '';
   over = false;
 
-  console.log(gameEvent);
+  // console.log(gameEvent);
   $('.game-board-container div').on('click', function () {
     const messageText = function (currentPlayer) {
       return 'It\'s your turn, Player ' + currentPlayer;
@@ -145,7 +146,8 @@ function clearBoard(event) {
 
     let divClass = $(this).attr('class');
     let divClassNum = parseInt(divClass);
-    console.log(divClassNum);
+
+    // console.log(divClassNum);
     if (isSpaceEmpty(divClassNum) === true) {
 
       $('.message-player').text('');
@@ -170,14 +172,14 @@ function clearBoard(event) {
       }else {
         changePlayer();
         currentPlayTurn = messageText(currentPlayer);
-        $('.player-turn').text(currentPlayTurn);
+        $('.message-player').text(currentPlayTurn);
 
       }
     } else {
-      $('.player-turn').text(currentPlayTurn);
+      $('.message-player').text(currentPlayTurn);
     }
 
-    console.log(event.target.id);
+    // console.log(event.target.id);
     gameAPI.updateGame(this.id, playSymbol, over);
   });
 
@@ -186,12 +188,11 @@ function clearBoard(event) {
   // playSymbol = "";
   // currentPlayTurn = "";
   // gameOver()
-  console.log('board is clear js');
+  // console.log('board is clear js');
 
   messageText(currentPlayer);
   currentPlayTurn = messageText(currentPlayTurn);
-  $('.player-turn').text(currentPlayTurn);
-  $('.message-player').text('');
+  $('.message-player').text(currentPlayTurn);
   $('.game-box').text('');
   changePlayer();
 }
