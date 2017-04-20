@@ -16,7 +16,9 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
-    <body class="container-fluid">
+<p>Maura's Tic Tac Toe Game</p>
+    <body>
+      <div id="container-fluid>"
         <form id="sign-up">
           <fieldset>
             <legend>Sign up!</legend>
@@ -32,7 +34,7 @@
               Password Confirmation:
               <input type="password" name="credentials[password_confirmation]">
             </label>
-            <input type="submit" name="submit" value="Sign up!">
+            <input class="button" type="submit" name="submit" value="Sign up!">
           </fieldset>
         </form>
         <form id="sign-in">
@@ -46,7 +48,7 @@
               Password:
               <input type="password" name="credentials[password]">
             </label>
-            <input type="submit" name="submit" value="Sign in!">
+            <input class="button" type="submit" name="submit" value="Sign in!">
           </fieldset>
         </form>
 
@@ -62,18 +64,16 @@
               <input type="password" name="passwords[new]">
             </label>
 
-            <input type="submit" name="submit" value="Change Password!">
+            <input class="button" type="submit" name="submit" value="Change Password!">
           </fieldset>
         </form>
 
        <form id="sign-out">
           <fieldset>
             <legend>Sign Out!</legend>
-            <input type="submit" name="submit" value="Sign Out!">
+            <input class="button" type="submit" name="submit" value="Sign Out!">
           </fieldset>
         </form>
-
-      <p>Maura's Tic Tac Toe Game</p>
       <div class="Player Turn"></div>
 
 
@@ -99,12 +99,11 @@
         </div>
       </div>
       </div>
-        <!-- Table for board game.
-        Bootsrap with 3x3 columns might be easier here? -->
-
-        <input id="reset-button" class="reset-button" type="button" value="Start Game" />
+<div id="game-buttons">
+        <input id="reset-button" class="button" type="button" value="Start Game" />
         <!-- Reset button to clear board -->
         <input id="show-games" class="button" type="button" value="Show Games" />
         <!-- <input id="get-game" class="button" type="button" value="Get Game" /> -->
+</div>
     </body>
 </html>

@@ -1,47 +1,58 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Barrio');
+@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch|Pompiere);
+
+.button {
+  margin-top: 15px;
+  background:black;
+  color:white;
+}
 
 body {
-  font-family: 'Barrio', cursive;
+  font-family: 'Pompiere', cursive;
   margin:0 auto;
   text-align:center;
   margin-top:50px;
-  color:#000080;
-  /*background:#9FC4D4;*/
+  color: white;
+  background:black;
 }
 
 p {
-  font-family: 'Barrio', cursive;
+  font-family: 'Pompiere', cursive;
   font-size: 40px;
-  color: #2e4c7c;
+  color: white;
   }/*game-board-container {
 
 }*/
 /*sign-up{
   background-color: #9FC4D4;
 }*/
-.container-fluid{
-  font-family: 'Barrio', cursive;
-  color: #2e4c7c;
+#container-fluid {
+  font-family: 'Pompiere', cursive;
+  color: white;
+  background:black;
 }
+
 .game-play{
-    font-family: 'Barrio', cursive;
-    color: #2e4c7c;
+    font-family: 'Pompiere', cursive;
+    color: white;
 }
 .game-box {
-    color: #2e4c7c;
+    color: white;
     margin: 0 50 0 50;
     float: left;
     border: 2px solid white;
-    background: #b8c1d1;
+    background: grey;
     text-align: center ;
     height: 80px ;
     width:33%;
-    font-size: 60px;
-    font-family: 'Barrio', cursive;
+    font-size: 65px;
+    font-family: 'Cabin Sketch', cursive;
     vertical-align: middle;
 }
+
+
 /*.row1{
   float:left;
 }
