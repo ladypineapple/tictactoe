@@ -1,7 +1,7 @@
 TIC TAC TOE
 
 Game Link:
-https://ladypineapple.github.io/tictactoe/
+https://ladypinetree.github.io/tictactoe/
 
 Wireframes:
 http://imgur.com/a/QxivM

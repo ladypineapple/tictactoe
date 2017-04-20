@@ -1,7 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Barrio');
-@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch|Pompiere);
+@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch|Frijole|Pompiere);
 
 .button {
   margin-top: 15px;
@@ -19,7 +19,7 @@ body {
 }
 
 p {
-  font-family: 'Pompiere', cursive;
+  font-family: 'Frijole', cursive;
   font-size: 40px;
   color: white;
   }/*game-board-container {
@@ -32,16 +32,32 @@ p {
   font-family: 'Pompiere', cursive;
   color: white;
   background:black;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.message-player{
+  font-size: 18px;
+  // border: 1px solid white;
+  // padding-top: 5px;
+  // padding-bottom: 5px;
+  // margin-left: 1%;
+  // margin-right: 1%;
 }
 
 .input {
   background:white;
   color: black;
 }
+
+.legend{
+    font-family: 'Pompiere', cursive;
+    color: grey;
+}
 .game-play{
     font-family: 'Pompiere', cursive;
     color: white;
 }
+
 .game-box {
     color: white;
     margin: 0 50 0 50;
@@ -70,7 +86,16 @@ p {
     vertical-align: middle;
 }
 
+#game-buttons {
+  float:left;
+  margin-left: 42%;
+  margin-bottom: 50px;
+}
 
+// change this button to a better hover
+// #sign-out-btn:hover{
+//   background:red;
+// }
 /*.row1{
   float:left;
 }

@@ -51,6 +51,7 @@ const onSignOut = function (event) {
 };
 
 const addHandlers = () => {
+  $('.message-player').text('Please sign in to play.');
   $('#sign-up').show();
   $('#sign-in').show();
   $('#sign-out').hide();
