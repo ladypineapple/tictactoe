@@ -18,35 +18,37 @@
 </head>
 <p>Maura's Tic Tac Toe Game</p>
     <body>
-      <div id="container-fluid>"
+      <div id="container-fluid">
+        <div id="up">
         <form id="sign-up">
           <fieldset>
             <legend>Sign up!</legend>
             <label class="email">
               Email:
-              <input type="text" name="credentials[email]">
+              <input class ="input" type="text" name="credentials[email]">
             </label>
             <label class="password">
               Password:
-              <input type="password" name="credentials[password]">
+              <input class ="input" type="password" name="credentials[password]">
             </label>
             <label class="password_confirmation">
               Password Confirmation:
-              <input type="password" name="credentials[password_confirmation]">
+              <input class ="input" type="password" name="credentials[password_confirmation]">
             </label>
             <input class="button" type="submit" name="submit" value="Sign up!">
           </fieldset>
         </form>
+      </div>
         <form id="sign-in">
           <fieldset>
             <legend>Sign in!</legend>
             <label class="email">
               Email:
-              <input type="text" name="credentials[email]">
+              <input class ="input" type="text" name="credentials[email]">
             </label>
             <label class="password">
               Password:
-              <input type="password" name="credentials[password]">
+              <input class ="input" type="password" name="credentials[password]">
             </label>
             <input class="button" type="submit" name="submit" value="Sign in!">
           </fieldset>
@@ -57,11 +59,11 @@
             <legend>Change Password!</legend>
             <label>
               Current Password:
-              <input type="password" name="passwords[old]">
+              <input class ="input" type="password" name="passwords[old]">
             </label>
             <label>
               New Password:
-              <input type="password" name="passwords[new]">
+              <input class ="input" type="password" name="passwords[new]">
             </label>
 
             <input class="button" type="submit" name="submit" value="Change Password!">

@@ -16,6 +16,7 @@ const signUpSuccess = () => {
 const signInSuccess = () => {
   $('#sign-up').val('');
   $('#sign-in').val('');
+  $('#up').hide();
   $('#sign-up').hide();
   $('#sign-in').hide();
   $('#change-password').show();
@@ -40,6 +41,7 @@ const changePasswordSuccess = () => {
 
 const signOutSuccess = () => {
     $('#sign-out').hide();
+    $('#up').show();
     $('#game-board-container').val('');
     $('.game-box').val('');
     $('#change-password').hide();
