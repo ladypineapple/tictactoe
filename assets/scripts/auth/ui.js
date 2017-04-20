@@ -22,7 +22,8 @@ const signInSuccess = () => {
   $('#sign-out').show();
   $('#reset-button').show();
   $('#show-games').show();
-  $('#game-board-container').show();
+  $('.game-board-container').show();
+  $('#game-buttons').show();
   $('.game-box').on('click');
   $('.message-player').text('Success. Start Game to play.');
 
@@ -44,7 +45,8 @@ const signOutSuccess = () => {
     $('#change-password').hide();
     $('#reset-button').hide();
     $('#show-games').hide();
-    $('#game-board-container').hide();
+    $('.game-board-container').hide();
+    $('#game-buttons').hide();
     $('#sign-in').show();
     $('#sign-up').show();
     $('#sign-up').val('');
