@@ -51,11 +51,13 @@ const onSignOut = function (event) {
 };
 
 const addHandlers = () => {
+  $('.message-player').text('Please sign in to play.');
   $('#sign-up').show();
   $('#sign-in').show();
   $('#sign-out').hide();
   $('#change-password').hide();
-  $('#game-board-container').hide();
+  $('.game-board-container').hide();
+  $('#game-buttons').hide();
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);

@@ -14,15 +14,18 @@ const signUpSuccess = () => {
 };
 
 const signInSuccess = () => {
+  $('.input').val('');
   $('#sign-up').val('');
   $('#sign-in').val('');
+  $('#up').hide();
   $('#sign-up').hide();
   $('#sign-in').hide();
   $('#change-password').show();
   $('#sign-out').show();
   $('#reset-button').show();
   $('#show-games').show();
-  $('#game-board-container').show();
+  $('.game-board-container').show();
+  $('#game-buttons').show();
   $('.game-box').on('click');
   $('.message-player').text('Success. Start Game to play.');
 
@@ -38,13 +41,16 @@ const changePasswordSuccess = () => {
   };
 
 const signOutSuccess = () => {
+    $('.input').val('');
     $('#sign-out').hide();
+    $('#up').show();
     $('#game-board-container').val('');
     $('.game-box').val('');
     $('#change-password').hide();
     $('#reset-button').hide();
     $('#show-games').hide();
-    $('#game-board-container').hide();
+    $('.game-board-container').hide();
+    $('#game-buttons').hide();
     $('#sign-in').show();
     $('#sign-up').show();
     $('#sign-up').val('');
