@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Maura's Game</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Barrio" > -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <!-- <link href="style.css" rel="stylesheet"> -->
+      <!-- adds link to css style sheet -->
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="assets/scripts/board.js" type="text/javascript" charset="utf-8" defer></script> -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<p>Maura's Tic Tac Toe Game</p>
+    <body>
+      <div id="container-fluid">
+        <div id="up">
+        <form id="sign-up">
+          <fieldset>
+            <legend class="legend">Sign up</legend>
+            <label class="email">
+              Email:
+              <input class ="input" type="text" name="credentials[email]">
+            </label>
+            <label class="password">
+              Password:
+              <input class ="input" type="password" name="credentials[password]">
+            </label>
+            <label class="password_confirmation">
+              Password Confirmation:
+              <input class ="input" type="password" name="credentials[password_confirmation]">
+            </label>
+            <input class="button" type="submit" name="submit" value="Sign up">
+          </fieldset>
+        </form>
+      </div>
+        <form id="sign-in">
+          <fieldset>
+            <legend class="legend">Sign in</legend>
+            <label class="email">
+              Email:
+              <input class ="input" type="text" name="credentials[email]">
+            </label>
+            <label class="password">
+              Password:
+              <input class ="input" type="password" name="credentials[password]">
+            </label>
+            <input class="button" type="submit" name="submit" value="Sign in">
+          </fieldset>
+        </form>
+
+        <form id="change-password">
+          <fieldset>
+            <legend class="legend"> Change Password</legend>
+            <label>
+              Current Password:
+              <input class ="input" type="password" name="passwords[old]">
+            </label>
+            <label>
+              New Password:
+              <input class ="input" type="password" name="passwords[new]">
+            </label>
+
+            <input class="button" type="submit" name="submit" value="Change Password">
+          </fieldset>
+        </form>
+
+       <form id="sign-out">
+          <fieldset>
+            <legend class="legend" >Sign Out</legend>
+            <input id="sign-out-btn" class="button" type="submit" name="submit" value="Sign Out">
+          </fieldset>
+        </form>
+      <div class="Player Turn"></div>
+      <br>
+      <br>
+        <div class="message-player"> Please sign in to play.</div>
+        <br>
+        <br>
+        <div class="game-play">
+          <div class="player-turn"></div>
+      <!-- Message to display whose turn it is -->
+          <br>
+        <!-- Need to use two classes for each game square -->
+        <!-- First class needs leading numbers for game arrays -->
+          <div class="game-board-container">
+              <div id="0" class="0square game-box"></div>
+              <div id="1" class="1square game-box"></div>
+              <div id="2" class="2square game-box"></div>
+
+              <div id="3" class="3square game-box"></div>
+              <div id="4" class="4square game-box"></div>
+              <div id="5" class="5square game-box"></div>
+
+              <div id="6" class="6square game-box"></div>
+              <div id="7" class="7square game-box"></div>
+              <div id="8" class="8square game-box"></div>
+        </div>
+      </div>
+      </div>
+<div id="game-buttons">
+        <input id="reset-button" class="button" type="button" value="Start Game" />
+        <!-- Reset button to clear board -->
+        <input id="show-games" class="button" type="button" value="Show Games" />
+        <!-- <input id="get-game" class="button" type="button" value="Get Game" /> -->
+</div>
+    </body>
+</html>
